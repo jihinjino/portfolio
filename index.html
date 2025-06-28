@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jihin Jino S | Assistant Professor & Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="Assets/jihin.jpg">
+    <style>
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #34A853;
+            --accent-color: #EA4335;
+            --dark-color: #202124;
+            --light-color: #f8f9fa;
+            --gray-color: #5f6368;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Open Sans', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--gray-color);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3367d6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.3);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.3);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Updated Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .experience-card, .education-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .experience-card:hover, .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .experience-title, .education-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .experience-company, .education-institute {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .experience-duration, .education-duration {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .project-description {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .tech-item {
+            background-color: #e9f1fe;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e9f1fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #3367d6;
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 991.98px) {
+            section {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero {
+                padding: 100px 0 60px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .section-title {
+                text-align: center;
+            }
+            
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jihin Jino S</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content animate-on-scroll">
+                    <h1>Jihin Jino S</h1>
+                    <h2 class="text-muted mb-4">Assistant Professor & Software Developer</h2>
+                    <p>Passionate educator and skilled developer with expertise in Java, Python, and C++. Dedicated to mentoring students and building innovative software solutions.</p>
+                    <div class="hero-btns d-flex">
+                        <a href="#contact" class="btn btn-primary me-3">Contact Me</a>
+                        <a href="#projects" class="btn btn-outline-primary">View Projects</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <img src="https://camo.githubusercontent.com/2366b34bb903c09617990fb5fff4622f3e941349e846ddb7e73df872a9d21233/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3733303730332f73637265656e73686f74732f363538313234332f6176656e746f2e676966" alt="Jihin Jino" class="img-fluid hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6 animate-on-scroll">
+                    <img src="Assets/jihin.jpg" alt="About Jihin" class="img-fluid about-img">
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3>Assistant Professor & Software Developer</h3>
+                    <p>I am a dedicated professional with a Master's degree in Computer Science and Engineering, currently working as an Assistant Professor while continuing to develop innovative software solutions.</p>
+                    <p>With experience at Bosch Global Software Technologies and VSB Engineering College, I bring a unique combination of technical expertise and teaching skills to help bridge the gap between academia and industry.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Name:</strong> Jihin Jino S</li>
+                                <li class="mb-2"><strong>Email:</strong> jihinjino4435@gmail.com</li>
+                                <li class="mb-2"><strong>Phone:</strong> +91-9487428084</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Education:</strong> M.Tech - CSE</li>
+                                <li class="mb-2"><strong>Github:</strong> github.com/jihinjino</li>
+                                <li class="mb-2"><strong>Location:</strong> Coimbatore, India</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h4 class="skill-name">Java</h4>
+                    <p class="skill-level">Advanced</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h4 class="skill-name">Python</h4>
+                    <p class="skill-level">Fundamentals</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="skill-name">C++</h4>
+                    <p class="skill-level">Fundamentals</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4 class="skill-name">MySQL/SQLite</h4>
+                    <p class="skill-level">Intermediate</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h4 class="skill-name">HTML5</h4>
+                    <p class="skill-level">Intermediate</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h4 class="skill-name">CSS3</h4>
+                    <p class="skill-level">Intermediate</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h4 class="skill-name">Git</h4>
+                    <p class="skill-level">Advanced</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <div class="skill-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h4 class="skill-name">Linux</h4>
+                    <p class="skill-level">Intermediate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="bg-light">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Experience & Education</h2>
+            <div class="row">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Experience</h3>
+                    <div class="experience-card">
+                        <h4 class="experience-title">Assistant Professor (IMPACT Trainer)</h4>
+                        <h5 class="experience-company">VSB Engineering College</h5>
+                        <p class="experience-duration">Jan 2025 – Oct 2025</p>
+                        <ul>
+                            <li>Conducted sessions on Java Programming for students as part of IMPACT training</li>
+                            <li>Prepared coding exercises and content tailored to various learning levels</li>
+                            <li>Evaluated performance through quizzes and feedback-driven assessments</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <h4 class="experience-title">Software Developer Intern</h4>
+                        <h5 class="experience-company">Bosch Global Software Technologies</h5>
+                        <p class="experience-duration">Aug 2023 – May 2024</p>
+                        <ul>
+                            <li>Developed Speed Limit Service (SLS) and integrated it using pybind11 to bridge C++ and Python</li>
+                            <li>Validated service functionality within embedded automotive software stack</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Education</h3>
+                    <div class="education-card">
+                        <h4 class="education-title">M.Tech - Computer Science and Engineering</h4>
+                        <h5 class="education-institute">Sri Krishna College of Engineering and Technology</h5>
+                        <p class="education-duration">Aug 2019 – May 2024</p>
+                        <p>GPA: 7.62</p>
+                    </div>
+                    <div class="education-card">
+                        <h4 class="education-title">Honors & Awards</h4>
+                        <ul>
+                            <li>Awarded title of Best Teaching – May 2025</li>
+                            <li>Solved over 300+ LeetCode problems in 60 days</li>
+                        </ul>
+                    </div>
+                    <div class="education-card">
+                        <h4 class="education-title">Volunteer Experience</h4>
+                        <ul>
+                            <li>Mentored over 300 students in Java, Python, and SQL</li>
+                            <li>Conducted online and offline training focused on improving problem-solving and programming skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="project-card">
+                        <img src="Assets/project1.gif" alt="SOA for ADAS" class="img-fluid project-img">
+                        <div class="project-content">
+                            <h3 class="project-title">SOA for ADAS</h3>
+                            <p class="project-description">Developed the Speed Limit Service (SLS) in C++ and integrated it into an ADAS software stack using pybind11 to wrap into Python.</p>
+                            <div class="project-tech">
+                                <span class="tech-item">C++</span>
+                                <span class="tech-item">Python</span>
+                                <span class="tech-item">pybind11</span>
+                                <span class="tech-item">ADAS</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="project-card">
+                        <img src="Assets/project2.webp" alt="OSM Using ADAS Data" class="img-fluid project-img">
+                        <div class="project-content">
+                            <h3 class="project-title">OSM Using ADAS Data</h3>
+                            <p class="project-description">Extracted and visualized driving routes from OpenStreetMap API based on ADAS-collected location data.</p>
+                            <div class="project-tech">
+                                <span class="tech-item">Python</span>
+                                <span class="tech-item">OpenStreetMap</span>
+                                <span class="tech-item">Folium</span>
+                                <span class="tech-item">Geospatial</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="project-card">
+                        <img src="Assets/project3.gif" alt="Credit Card Fraud Detection" class="img-fluid project-img">
+                        <div class="project-content">
+                            <h3 class="project-title">Credit Card Fraud Detection</h3>
+                            <p class="project-description">Built a classifier to detect fraudulent credit card transactions with 95% accuracy using XGBoost.</p>
+                            <div class="project-tech">
+                                <span class="tech-item">Python</span>
+                                <span class="tech-item">XGBoost</span>
+                                <span class="tech-item">Machine Learning</span>
+                                <span class="tech-item">SMOTE</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-4 animate-on-scroll">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+91-9487428084</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 animate-on-scroll">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>jihinjino4435@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 animate-on-scroll">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Coimbatore, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 animate-on-scroll">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <div class="map-container" style="height: 100%; min-height: 300px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.96561437263!2d76.9908643148026!3d10.99855889219464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582d5c8d6a9b%3A0x8e8e9d3d5f3e3d9f!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 animate-on-scroll">
+                    <h3 class="text-white mb-4">Jihin Jino S</h3>
+                    <p>Assistant Professor & Software Developer with expertise in Java, Python, and C++. Passionate about teaching and developing innovative solutions.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://github.com/jihinjino"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jihin-jino-s/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 animate-on-scroll">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <h4 class="text-white mb-4">Skills</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Java Programming</a></li>
+                        <li><a href="#">Python Development</a></li>
+                        <li><a href="#">C++ Development</a></li>
+                        <li><a href="#">Database Management</a></li>
+                        <li><a href="#">Web Technologies</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <h4 class="text-white mb-4">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Coimbatore, India</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91-9487428084</li>
+                        <li><i class="fas fa-envelope me-2"></i> jihinjino4435@gmail.com</li>
+                        <li><i class="fab fa-github me-2"></i> github.com/jihinjino</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center animate-on-scroll">
+                <p>&copy; 2025 Jihin Jino S. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class in navigation
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Animate elements on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Activate Bootstrap scrollspy
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '.navbar',
+            offset: 70
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 70) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
